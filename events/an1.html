@@ -1036,6 +1036,26 @@ button { font-family: var(--font); cursor: pointer; border: none; }
   font-size: 15px;
   line-height: 1.7;
 }
+
+/* AN1 specific speaker styles */
+.an1-speakers .speaker-img-wrap {
+  background: #FFFFFF;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.an1-speakers .speaker-img-wrap img {
+  aspect-ratio: auto;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .an1-speakers .speaker-img-wrap img {
+    width: 100%;
+    height: auto;
+  }
+}
 </style>
 </head>
 <body>
@@ -1106,7 +1126,7 @@ button { font-family: var(--font); cursor: pointer; border: none; }
 </section>
 
 <!-- ==================== SPEAKERS ==================== -->
-<section class="section-speakers">
+<section class="section-speakers an1-speakers">
   <div class="container-narrow">
 
     <!-- Speaker 1 -->
