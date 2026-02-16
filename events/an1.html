@@ -1042,18 +1042,29 @@ button { font-family: var(--font); cursor: pointer; border: none; }
   background: #FFFFFF;
   border: none;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  max-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .an1-speakers .speaker-img-wrap img {
-  aspect-ratio: auto;
-  object-fit: contain;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
   width: 100%;
   height: auto;
+  max-height: 400px;
 }
 
 @media (max-width: 768px) {
+  .an1-speakers .speaker-img-wrap {
+    max-height: none;
+  }
   .an1-speakers .speaker-img-wrap img {
     width: 100%;
     height: auto;
+    max-height: none;
+  }
+}
   }
 }
 </style>
@@ -1136,7 +1147,7 @@ button { font-family: var(--font); cursor: pointer; border: none; }
         <img src="../assets/images/speakers/speaker_an1_1.webp" alt="Jarosław Jaśkowiak">
       </div>
         <div class="speaker-topic">Prompting w praktyce</div>
-        <h3 class="speaker-title">Jak rozmawiać z AI, żeby działała dla Ciebie</h3>
+        <h3 class="speaker-title">Jak rozmawiać z ChatGPT? Inżynieria promptów w praktyce</h3>
         <div class="speaker-name">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           Jarosław Jaśkowiak
