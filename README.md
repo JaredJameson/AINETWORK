@@ -9,6 +9,7 @@ AINETWORK/
 ├── index.html              # Strona główna
 ├── wydarzenia.html         # Lista wydarzeń
 ├── events/                 # Podstrony wydarzeń
+│   ├── an1.html           # AI NETWORK #1
 │   └── an3.html           # AI NETWORK #3
 ├── assets/                # Zasoby
 │   ├── images/            # Grafiki
