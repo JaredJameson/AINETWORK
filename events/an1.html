@@ -1042,7 +1042,7 @@ button { font-family: var(--font); cursor: pointer; border: none; }
   background: #FFFFFF;
   border: none;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  max-height: 400px;
+  min-height: 340px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1052,17 +1052,19 @@ button { font-family: var(--font); cursor: pointer; border: none; }
   object-fit: contain !important;
   width: 100%;
   height: auto;
-  max-height: 400px;
+  max-height: 340px;
 }
 
 @media (max-width: 768px) {
   .an1-speakers .speaker-img-wrap {
-    max-height: none;
+    min-height: auto;
   }
   .an1-speakers .speaker-img-wrap img {
     width: 100%;
     height: auto;
     max-height: none;
+  }
+}
   }
 }
   }
@@ -1303,32 +1305,8 @@ button { font-family: var(--font); cursor: pointer; border: none; }
     <div class="sidebar-events">
       <div class="sidebar-events-title">Wszystkie wydarzenia</div>
 
-      <a href="#" class="sidebar-event-item">
-        <div class="sidebar-event-date">15 listopada 2024</div>
-        <div class="sidebar-event-title">AI NETWORK #1 — Produktywność, Narzędzia, Wdrożenia</div>
-        <div class="sidebar-event-meta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          Inkubator Starter
-        </div>
-      </a>
-
-      <a href="#" class="sidebar-event-item">
-        <div class="sidebar-event-date">12 grudnia 2024</div>
-        <div class="sidebar-event-title">AI NETWORK #2 — Strategia, Integracje, Praktyka</div>
-        <div class="sidebar-event-meta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          Inkubator Starter
-        </div>
-      </a>
-
       <div class="sidebar-event-item active">
-        <div class="sidebar-event-date">23 stycznia 2025</div>
+        <div class="sidebar-event-date">26 lutego 2025</div>
         <div class="sidebar-event-title">AI NETWORK #1 — Prompting, Bezpieczeństwo, Prawo</div>
         <div class="sidebar-event-meta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1340,17 +1318,30 @@ button { font-family: var(--font); cursor: pointer; border: none; }
       </div>
 
       <a href="#" class="sidebar-event-item">
-        <div class="sidebar-event-date">Wkrótce</div>
-        <div class="sidebar-event-title">AI NETWORK #4 — Nadchodzące spotkanie</div>
+        <div class="sidebar-event-date">27 maja 2025</div>
+        <div class="sidebar-event-title">AI NETWORK #2 — Sprzedaż, Wideo AI, Polski LLM</div>
         <div class="sidebar-event-meta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
           </svg>
-          Data wkrótce
+          Inkubator Starter
         </div>
       </a>
 
+      <a href="an3.html" class="sidebar-event-item">
+        <div class="sidebar-event-date">25 września 2025</div>
+        <div class="sidebar-event-title">AI NETWORK #3 — Compliance, Zmiana, Automatyzacje</div>
+        <div class="sidebar-event-meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          Bydgoszcz, WSB Merito
+        </div>
+      </a>
+
+    </div>
     </div>
 
   </aside> <!-- /.event-detail-sidebar -->
