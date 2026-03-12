@@ -44,21 +44,14 @@ export default function Nav() {
       }}>
         {/* Logo */}
         <Link href="/" style={{
-          display: 'flex', alignItems: 'center', gap: '10px',
-          textDecoration: 'none', color: 'var(--text-dark)',
-          fontWeight: 700, fontSize: '17px', letterSpacing: '-0.01em',
+          display: 'flex', alignItems: 'center',
+          textDecoration: 'none',
         }}>
-          <div style={{
-            width: '32px', height: '32px',
-            background: 'var(--yellow)',
-            borderRadius: '6px',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-          }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-            </svg>
-          </div>
-          <span><span style={{ color: 'var(--text-dark-muted)', fontWeight: 400 }}>AI</span> NETWORK</span>
+          <img
+            src="/assets/images/logo-ainetwork.webp"
+            alt="AI NETWORK"
+            style={{ height: '38px', width: 'auto' }}
+          />
         </Link>
 
         {/* Desktop links */}

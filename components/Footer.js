@@ -19,23 +19,12 @@ export default function Footer() {
         }} className="footer-grid">
           {/* Brand */}
           <div>
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: '10px',
-              marginBottom: '16px',
-            }}>
-              <div style={{
-                width: '30px', height: '30px',
-                background: 'var(--yellow)',
-                borderRadius: '6px',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-                </svg>
-              </div>
-              <span style={{ fontWeight: 700, fontSize: '16px', color: '#fff' }}>
-                <span style={{ color: 'var(--text-secondary)', fontWeight: 400 }}>AI</span> NETWORK
-              </span>
+            <div style={{ marginBottom: '16px' }}>
+              <img
+                src="/assets/images/logo-ainetwork.webp"
+                alt="AI NETWORK"
+                style={{ height: '32px', width: 'auto', filter: 'invert(1)' }}
+              />
             </div>
             <p style={{
               fontSize: '14px',
