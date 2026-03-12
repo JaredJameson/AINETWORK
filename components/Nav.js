@@ -99,21 +99,6 @@ export default function Nav() {
               <circle cx="4" cy="4" r="2"/>
             </svg>
           </a>
-          <Link href="/admin" style={{
-            padding: '9px 22px',
-            background: 'var(--yellow)',
-            color: '#0A0A0A',
-            borderRadius: '100px',
-            fontSize: '13px',
-            fontWeight: 700,
-            textDecoration: 'none',
-            transition: 'background 0.2s, transform 0.2s',
-          }}
-            onMouseEnter={e => { e.target.style.background = 'var(--yellow-light)'; e.target.style.transform = 'translateY(-1px)'; }}
-            onMouseLeave={e => { e.target.style.background = 'var(--yellow)'; e.target.style.transform = 'none'; }}
-          >
-            Panel
-          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -160,20 +145,6 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
-          <Link href="/admin"
-            onClick={() => setMenuOpen(false)}
-            style={{
-              display: 'inline-flex', marginTop: '16px',
-              padding: '10px 24px',
-              background: 'var(--yellow)',
-              color: '#0A0A0A',
-              borderRadius: '100px',
-              fontSize: '14px', fontWeight: 700,
-              textDecoration: 'none',
-            }}
-          >
-            Panel
-          </Link>
         </div>
       )}
 
