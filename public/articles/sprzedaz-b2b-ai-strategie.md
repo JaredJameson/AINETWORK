@@ -12,16 +12,6 @@ thumbnail_prompt: "Dark background with yellow data streams connecting business 
 author: "AI NETWORK"
 ---
 
-## TL;DR
-
-- **Messy Middle zmienia rules:** Prospect przebywa 60-70% decyzji zanim skaże się z sales team — AI musi być obecna w tym obszarze
-- **Behawioralne mechanizmy AI:** Social proof, scarcity, authority — można skalować z AI na 100+ prospektów dziennie
-- **Claude Cowork dla sprzedaży:** Od prospectingu, personalizacji, follow-upów — Cowork automatyzuje pracę, którą handlowiec spędzał na research i admin
-- **Real impact:** 300-400% wzrost leads, 15-20% wzrost open rates, 3-4x wzrost conversion
-- **Sales day before vs. after AI:** Z 8 godzin na logistics (research, emaile, tracking) → 4 godziny, zamiast tego 4 godziny na strategy i relationship
-
----
-
 ## 1. Erozja tradycyjnego modelu sprzedażowego B2B
 
 Tradycyjna ścieżka sprzedażowa B2B miała logikę: Awareness → Consideration → Decision. Sales team inicjował konwersację w momencie awareness, a potem towarzyszył prospektowi przez ścieżkę.
