@@ -90,40 +90,25 @@ export default function AiNewsClient({ data }) {
           style={{
             position: 'absolute', inset: 0,
             width: '100%', height: '100%',
-            objectFit: 'cover', opacity: 0.3,
+            objectFit: 'cover', opacity: 0.6,
             pointerEvents: 'none',
           }}
         />
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(13,13,13,0.4) 0%, rgba(13,13,13,0.9) 100%)',
+          background: 'linear-gradient(to bottom, rgba(13,13,13,0.15) 0%, rgba(13,13,13,0.75) 100%)',
           pointerEvents: 'none',
         }} />
         <div className="container" style={{ position: 'relative' }}>
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <div className="sec-label">Nowości</div>
             <h1 className="sec-title" style={{ fontSize: 'clamp(32px, 5vw, 54px)', maxWidth: '640px', marginBottom: '20px', color: '#FFFFFF' }}>
               Co nowego w świecie AI
             </h1>
             <p style={{ fontSize: '16px', color: '#AAAAAA', lineHeight: 1.7, maxWidth: '560px', marginBottom: '16px' }}>
               Cotygodniowy przegląd najważniejszych nowości ze świata sztucznej inteligencji, filtrowanych przez pryzmat polskiego biznesu.
             </p>
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: '8px',
-              marginTop: '24px', padding: '8px 16px',
-              background: 'rgba(46,204,113,0.1)',
-              border: '1px solid rgba(46,204,113,0.2)',
-              borderRadius: '100px',
-              fontSize: '12px', fontWeight: 600, color: '#2ECC71',
-            }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2ECC71', display: 'inline-block', animation: 'pulse 2s infinite' }} />
-              Aktualizowane co tydzień automatycznie
-            </div>
           </motion.div>
         </div>
-        <style>{`
-          @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-        `}</style>
       </section>
 
       {/* ─── Category pills (filter) ──────────────────────────── */}
