@@ -8,6 +8,7 @@ export async function GET(req) {
   const events = await prisma.event.findMany({
     where: status ? { status } : {},
     orderBy: { date: 'asc' },
+    include: { _count: { select: { registrations: true } } },
   });
   return NextResponse.json(events);
 }
@@ -25,8 +26,9 @@ export async function POST(req) {
       location: data.location,
       venue: data.venue,
       format: data.format,
-      seats: data.seats,
+      maxSeats: data.maxSeats ? parseInt(data.maxSeats) : null,
       free: data.free ?? true,
+      registrationOpen: data.registrationOpen ?? true,
       accent: data.accent || '#F5C518',
       imageUrl: data.imageUrl,
       status: data.status || 'upcoming',

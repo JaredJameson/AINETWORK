@@ -14,8 +14,8 @@ function slugify(str) {
 const defaultForm = {
   slug: '', brand: '', title: '', excerpt: '',
   date: new Date().toISOString().split('T')[0], time: '17:00–20:00',
-  location: '', venue: '', format: 'Konferencja', seats: '100 miejsc',
-  free: true, accent: '#F5C518', imageUrl: '', status: 'upcoming', href: '',
+  location: '', venue: '', format: 'Konferencja', maxSeats: '',
+  registrationOpen: true, free: true, accent: '#F5C518', imageUrl: '', status: 'upcoming', href: '',
 };
 
 export default function NewEventPage() {
@@ -124,8 +124,8 @@ export default function NewEventPage() {
             <input style={inputStyle} value={form.format} onChange={e => set('format', e.target.value)} />
           </div>
           <div>
-            <label style={labelStyle}>Miejsca</label>
-            <input style={inputStyle} value={form.seats} onChange={e => set('seats', e.target.value)} />
+            <label style={labelStyle}>Maks. miejsc <span style={{ color: '#555', fontWeight: 400 }}>(puste = bez limitu)</span></label>
+            <input type="number" min="1" style={inputStyle} value={form.maxSeats} onChange={e => set('maxSeats', e.target.value)} placeholder="np. 100" />
           </div>
           <div>
             <label style={labelStyle}>Link zewnętrzny (opcjonalny)</label>
@@ -138,6 +138,13 @@ export default function NewEventPage() {
           <ImagePicker value={form.imageUrl} onChange={v => set('imageUrl', v)}
             contentType="events" slug={form.slug}
             title={form.title} excerpt={form.excerpt} />
+        </div>
+
+        <div style={{ marginBottom: '24px' }}>
+          <label style={{ ...labelStyle, display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+            <input type="checkbox" checked={form.registrationOpen} onChange={e => set('registrationOpen', e.target.checked)} style={{ accentColor: '#F5C518' }} />
+            Rejestracja otwarta
+          </label>
         </div>
 
         {error && <div style={{ color: '#E74C3C', fontSize: '13px', marginBottom: '12px' }}>{error}</div>}

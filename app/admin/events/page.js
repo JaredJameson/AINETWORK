@@ -4,7 +4,10 @@ import Link from 'next/link';
 export const dynamic = 'force-dynamic';
 
 export default async function EventsListPage() {
-  const events = await prisma.event.findMany({ orderBy: { date: 'asc' } });
+  const events = await prisma.event.findMany({
+    orderBy: { date: 'asc' },
+    include: { _count: { select: { registrations: true } } },
+  });
 
   return (
     <div>
@@ -44,6 +47,13 @@ export default async function EventsListPage() {
             }}>
               {ev.status === 'upcoming' ? 'Nadchodzący' : 'Miniony'}
             </span>
+            <Link href={`/admin/events/${ev.id}/registrations`} onClick={e => e.stopPropagation()} style={{
+              padding: '2px 8px', borderRadius: '4px', fontSize: '10px', fontWeight: 700,
+              background: 'rgba(46,204,113,0.15)', color: '#2ECC71',
+              textDecoration: 'none', whiteSpace: 'nowrap',
+            }}>
+              {ev._count?.registrations || 0} zapisów
+            </Link>
           </Link>
         ))}
       </div>

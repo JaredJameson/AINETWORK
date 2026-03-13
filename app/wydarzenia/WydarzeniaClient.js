@@ -106,7 +106,10 @@ export default function WydarzeniaClient({ upcomingEvents, pastEvents }) {
           {upcomingEvents.map((ev, i) => {
             const { day, month } = getDateParts(ev.date);
             const image = ev.imageUrl || ev.image;
-            const href = ev.href || `/wydarzenia/${ev.slug}`;
+            const regCount = ev._count?.registrations || 0;
+            const isFull = ev.maxSeats ? regCount >= ev.maxSeats : false;
+            const canRegister = ev.registrationOpen !== false && !isFull;
+            const href = ev.href || (canRegister ? `/wydarzenia/${ev.slug}/rejestracja` : null);
             return (
               <motion.div
                 key={ev.id}
@@ -160,9 +163,9 @@ export default function WydarzeniaClient({ upcomingEvents, pastEvents }) {
                       <span className="wyd-meta-item">
                         <ClockIcon size={15} /> {ev.time}
                       </span>
-                      {ev.seats && (
+                      {ev.maxSeats && (
                         <span className="wyd-meta-item">
-                          <UsersIcon size={15} /> {ev.seats}
+                          <UsersIcon size={15} /> {regCount} / {ev.maxSeats} miejsc
                         </span>
                       )}
                     </div>
@@ -174,10 +177,20 @@ export default function WydarzeniaClient({ upcomingEvents, pastEvents }) {
                           <CheckIcon /> Darmowe
                         </span>
                       )}
-                      <Link href={href} className="wyd-btn-sm-yellow">
-                        Zarejestruj się
-                        <ArrowRight size={16} />
-                      </Link>
+                      {href ? (
+                        <Link href={href} className="wyd-btn-sm-yellow" {...(ev.href ? { target: '_blank', rel: 'noopener' } : {})}>
+                          Zarejestruj się
+                          <ArrowRight size={16} />
+                        </Link>
+                      ) : (
+                        <span style={{
+                          display: 'inline-flex', alignItems: 'center', padding: '10px 22px',
+                          borderRadius: '10px', fontSize: '14px', fontWeight: 600,
+                          background: '#555', color: '#999', cursor: 'default',
+                        }}>
+                          {isFull ? 'Brak miejsc' : 'Rejestracja zamknięta'}
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>

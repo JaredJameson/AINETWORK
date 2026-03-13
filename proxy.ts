@@ -40,5 +40,7 @@ export const config = {
     '/api/upload',
     '/api/auth/me',
     '/api/auth/logout',
+    '/check-in/:path*',
+    '/api/registrations/:path*',
   ],
 };

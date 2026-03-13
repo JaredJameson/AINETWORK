@@ -27,24 +27,44 @@ model Article {
 }
 
 model Event {
-  id        String   @id @default(cuid())
-  slug      String   @unique
-  brand     String
-  title     String
-  excerpt   String
-  date      DateTime
-  time      String
-  location  String
-  venue     String
-  format    String
-  seats     String?
-  free      Boolean  @default(true)
-  accent    String
-  imageUrl  String?
-  status    String   // "upcoming" | "past"
-  href      String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id               String         @id @default(cuid())
+  slug             String         @unique
+  brand            String
+  title            String
+  excerpt          String
+  date             DateTime
+  time             String
+  location         String
+  venue            String
+  format           String
+  maxSeats         Int?
+  free             Boolean        @default(true)
+  accent           String
+  imageUrl         String?
+  status           String         // "upcoming" | "past"
+  href             String?
+  registrationOpen Boolean        @default(true)
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  registrations    Registration[]
+}
+
+model Registration {
+  id          String    @id @default(cuid())
+  eventId     String
+  event       Event     @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  firstName   String
+  lastName    String
+  email       String
+  company     String?
+  phone       String?
+  ticketCode  String    @unique
+  checkedIn   Boolean   @default(false)
+  checkedInAt DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@unique([eventId, email])
+  @@index([eventId])
 }
 
 model News {
