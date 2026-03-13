@@ -1,19 +1,29 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { verifyToken } from '@/lib/auth';
+import { jwtVerify } from 'jose';
 
-export function proxy(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const token = req.cookies.get('ain_token')?.value;
-  const payload = token ? verifyToken(token) : null;
 
-  if (!payload) {
+  if (!token) {
     if (req.nextUrl.pathname.startsWith('/admin')) {
       return NextResponse.redirect(new URL('/admin/login', req.url));
     }
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  return NextResponse.next();
+  try {
+    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+    await jwtVerify(token, secret);
+    return NextResponse.next();
+  } catch {
+    if (req.nextUrl.pathname.startsWith('/admin')) {
+      const response = NextResponse.redirect(new URL('/admin/login', req.url));
+      response.cookies.delete('ain_token');
+      return response;
+    }
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
 }
 
 export const config = {

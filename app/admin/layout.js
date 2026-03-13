@@ -1,8 +1,16 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import AdminSidebar from '@/components/admin/AdminSidebar';
 
-export const metadata = { title: 'Admin — AI NETWORK' };
-
 export default function AdminLayout({ children }) {
+  const pathname = usePathname();
+  const isLogin = pathname === '/admin/login';
+
+  if (isLogin) {
+    return children;
+  }
+
   return (
     <div style={{
       display: 'flex', minHeight: '100vh',
