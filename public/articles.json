@@ -32,6 +32,17 @@
       "reading_time": "20 min",
       "date": "2026-03-15",
       "article_file": "articles/fundamenty-ai-modele-narzedzia-prompty.md"
+    },
+    {
+      "id": "pillar-dane-badania",
+      "title": "AI w Praktyce — Co Mówią Dane i Badania w 2026 Roku",
+      "slug": "ai-w-praktyce-dane-i-badania-2026",
+      "category": "dane-badania",
+      "description": "Co faktycznie wiemy o wpływie AI na biznes, rynek pracy i produktywność w 2026 roku? Przegląd najważniejszych badań — od Anthropic Economic Index przez AI Fluency Index po dane o autonomii agentów. Fakty zamiast hype'u.",
+      "image": "assets/images/articles/pillar-dane-badania.png",
+      "reading_time": "19 min",
+      "date": "2026-03-15",
+      "article_file": "articles/ai-w-praktyce-dane-i-badania-2026.md"
     }
   ],
   "articles": [
@@ -203,6 +214,71 @@
       "reading_time": "11 min",
       "date": "2026-03-15",
       "article_file": "articles/chatgpt-claude-gemini-porownanie.md"
+    },
+    {
+      "id": "art-014",
+      "title": "AI a rynek pracy w 2026 — co mówią dane?",
+      "slug": "ai-rynek-pracy-dane-2026",
+      "pillar_id": "pillar-dane-badania",
+      "category": "dane-badania",
+      "category_label": "Dane & Badania",
+      "excerpt": "Jak AI faktycznie wpływa na rynek pracy w 2026 roku? Dane z Anthropic, ECB, McKinsey i polskiego rynku — observed exposure, reskilling i polska specyfika.",
+      "image": "assets/images/articles/art-rynek-pracy.png",
+      "reading_time": "12 min",
+      "date": "2026-03-15",
+      "article_file": "articles/ai-rynek-pracy-dane-2026.md"
+    },
+    {
+      "id": "art-015",
+      "title": "EU AI Act w praktyce — przewodnik compliance na 2026",
+      "slug": "eu-ai-act-compliance-praktyka",
+      "pillar_id": "pillar-dane-badania",
+      "category": "dane-badania",
+      "category_label": "Dane & Badania",
+      "excerpt": "Od sierpnia 2026 Komisja Europejska może nakładać kary za niezgodność z EU AI Act. Praktyczny przewodnik: timeline obowiązków, klasyfikacja ryzyka, GPAI compliance i checklist dla firm.",
+      "image": "assets/images/articles/art-eu-ai-act.png",
+      "reading_time": "13 min",
+      "date": "2026-03-15",
+      "article_file": "articles/eu-ai-act-compliance-praktyka.md"
+    },
+    {
+      "id": "art-016",
+      "title": "Autonomia agentów AI — co wiemy z milionów interakcji",
+      "slug": "autonomia-agentow-ai-praktyka",
+      "pillar_id": "pillar-dane-badania",
+      "category": "dane-badania",
+      "category_label": "Dane & Badania",
+      "excerpt": "Anthropic przeanalizował milion wywołań narzędzi i setki tysięcy sesji Claude Code. Autonomia agentów podwoiła się w 3 miesiące, 49,7% to kod, reszta wchodzi w back-office. Co to oznacza dla firm?",
+      "image": "assets/images/articles/art-autonomia-agentow.png",
+      "reading_time": "13 min",
+      "date": "2026-03-15",
+      "article_file": "articles/autonomia-agentow-ai-praktyka.md"
+    },
+    {
+      "id": "art-017",
+      "title": "AI Fluency Index — jak mierzyć dojrzałość współpracy z AI",
+      "slug": "ai-fluency-index-dojrzalosc-wspolpracy",
+      "pillar_id": "pillar-dane-badania",
+      "category": "dane-badania",
+      "category_label": "Dane & Badania",
+      "excerpt": "Anthropic zbadał prawie 10 000 konwersacji z Claude.ai i stworzył AI Fluency Index — pierwszą miarę jakości współpracy człowiek-AI. 85,7% iteruje, ale mało kto weryfikuje. Co to oznacza dla organizacji?",
+      "image": "assets/images/articles/art-fluency-index.png",
+      "reading_time": "11 min",
+      "date": "2026-03-15",
+      "article_file": "articles/ai-fluency-index-dojrzalosc-wspolpracy.md"
+    },
+    {
+      "id": "art-018",
+      "title": "ROI z AI — jak realistycznie liczyć zwrot z inwestycji",
+      "slug": "roi-ai-zwrot-z-inwestycji",
+      "pillar_id": "pillar-dane-badania",
+      "category": "dane-badania",
+      "category_label": "Dane & Badania",
+      "excerpt": "Tylko 5% firm osiąga pełny ROI z AI, a 42% porzuca projekty. Jak realistycznie mierzyć zwrot z inwestycji w AI? Dane McKinsey, Deloitte i Anthropic Economic Index.",
+      "image": "assets/images/articles/art-roi-ai.png",
+      "reading_time": "12 min",
+      "date": "2026-03-15",
+      "article_file": "articles/roi-ai-zwrot-z-inwestycji.md"
     }
   ],
   "categories": {
@@ -211,6 +287,7 @@
     "narzedzia-modele": "Narzędzia & Modele",
     "sprzedaz": "Sprzedaż B2B",
     "szablony": "Szablony & Wzory",
-    "case-studies": "Case Studies"
+    "case-studies": "Case Studies",
+    "dane-badania": "Dane & Badania"
   }
 }
