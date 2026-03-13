@@ -82,7 +82,6 @@ export default function Home() {
       <EventsSection />
       <BenefitsSection />
       <KnowledgeSection />
-      <CtaSection />
       <NewsletterSection />
     </>
   );
@@ -318,42 +317,27 @@ function PhilosophySection() {
   );
 }
 
-/* ─── EVENTS (white #FFFFFF, dark card banners) ───────────── */
+/* ─── EVENTS (single next event — full-width hero card) ──── */
 function EventsSection() {
-  const events = [
-    {
-      brand: 'AI NETWORK vol.4',
-      title: 'Praktyczne wdrożenia AI w biznesie',
-      day: '10', month: 'APR',
-      location: 'Bydgoszcz', format: 'Konferencja', seats: '100 miejsc',
-      accent: 'var(--yellow)',
-      href: '/wydarzenia/an4',
-    },
-    {
-      brand: 'AI NETWORK EDU',
-      title: 'AI w Edukacji — Praktyczny Warsztat dla Nauczycieli',
-      day: '30', month: 'APR',
-      location: 'Bydgoszcz WSB Merito', format: 'Warsztat', seats: 'Darmowe',
-      accent: '#2ECC71',
-      href: 'https://edu.ainetwork.pl',
-    },
-    {
-      brand: 'AI NETWORK PLASTICS',
-      title: 'AI w przetwórstwie tworzyw sztucznych',
-      day: '21', month: 'MAJ',
-      location: 'Kielce PLASTPOL', format: 'Konferencja', seats: '80 miejsc',
-      accent: '#5B8DEF',
-      href: 'https://plastics.ainetwork.pl',
-    },
-  ];
+  const nextEvent = {
+    brand: 'AI NETWORK vol.4',
+    title: 'AI NETWORK vol.4 — Spotkanie Społeczności AI',
+    excerpt: 'Czwarta edycja spotkań AI NETWORK. Prelekcje, case studies i networking z praktykami AI z różnych branż. Dołącz do społeczności ludzi, którzy AI wdrażają — nie tylko o nim mówią.',
+    day: '31', month: 'MAR', year: '2026',
+    location: 'Bydgoszcz',
+    format: 'Meetup',
+    seats: 'Darmowe',
+    time: '18:00–21:00',
+    imageUrl: '/assets/images/events/ai-network-vol4-hero.png',
+    href: '/wydarzenia',
+  };
 
   return (
     <section id="events" style={{ padding: '100px 0', background: '#FFFFFF' }}>
       <div className="container">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '48px', flexWrap: 'wrap', gap: '24px' }}>
           <Reveal>
-            <div className="sec-label">Nadchodzące</div>
-            <h2 className="sec-title" style={{ color: '#111111' }}>Kalendarz wydarzeń</h2>
+            <h2 className="sec-title" style={{ color: '#111111' }}>Najbliższe wydarzenie</h2>
             <div className="yellow-line" />
           </Reveal>
           <Reveal delay={0.2}>
@@ -370,84 +354,129 @@ function EventsSection() {
           </Reveal>
         </div>
 
-        <RevealList style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }} className="events-grid">
-          {events.map((ev) => (
+        <Reveal>
+          <Link href={nextEvent.href} style={{ textDecoration: 'none', display: 'block' }}>
             <motion.div
-              key={ev.title}
-              variants={fadeUp}
               style={{
-                background: '#FFFFFF',
-                border: '1px solid #E5E5E5',
-                borderRadius: '12px',
+                position: 'relative',
+                borderRadius: '20px',
                 overflow: 'hidden',
+                minHeight: '420px',
+                display: 'flex',
+                alignItems: 'flex-end',
                 cursor: 'pointer',
               }}
-              whileHover={{ y: -4, borderColor: 'var(--yellow)', boxShadow: '0 8px 30px rgba(0,0,0,0.08)', transition: { duration: 0.25 } }}
+              whileHover={{ scale: 1.005, transition: { duration: 0.4 } }}
             >
-              {/* Banner (dark) */}
+              {/* Background image */}
               <div style={{
-                background: '#111111',
-                borderBottom: '1px solid #E5E5E5',
-                padding: '24px 16px 16px',
-                position: 'relative',
-                minHeight: '140px',
-                display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
+                position: 'absolute', inset: 0,
+                background: nextEvent.imageUrl
+                  ? `url(${nextEvent.imageUrl}) center/cover no-repeat`
+                  : 'linear-gradient(135deg, #1A1A1A 0%, #0D0D0D 100%)',
+              }} />
+
+              {/* Dark overlay gradient */}
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.25) 100%)',
+              }} />
+
+              {/* Yellow accent line top */}
+              <div style={{
+                position: 'absolute', top: 0, left: 0, right: 0,
+                height: '4px', background: 'var(--yellow)',
+              }} />
+
+              {/* Date badge */}
+              <div style={{
+                position: 'absolute', top: '28px', right: '28px',
+                background: 'var(--yellow)', color: '#111111',
+                padding: '12px 16px', borderRadius: '12px',
+                textAlign: 'center', fontWeight: 800, lineHeight: 1,
+                boxShadow: '0 4px 20px rgba(245,197,24,0.4)',
+              }}>
+                <div style={{ fontSize: '32px' }}>{nextEvent.day}</div>
+                <div style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: '4px' }}>{nextEvent.month}</div>
+              </div>
+
+              {/* Content overlay */}
+              <div style={{
+                position: 'relative', zIndex: 2,
+                padding: '48px',
+                width: '100%',
+                maxWidth: '680px',
               }}>
                 <div style={{
-                  position: 'absolute', top: 0, left: 0, right: 0,
-                  height: '3px', background: ev.accent,
-                }} />
-                <div style={{
-                  position: 'absolute', top: '12px', right: '12px',
-                  background: ev.accent, color: '#111111',
-                  padding: '6px 10px', borderRadius: '6px',
-                  textAlign: 'center', fontWeight: 700, lineHeight: 1,
+                  display: 'inline-block',
+                  fontSize: '11px', fontWeight: 700,
+                  textTransform: 'uppercase', letterSpacing: '0.15em',
+                  color: 'var(--yellow)',
+                  marginBottom: '12px',
+                  background: 'rgba(245,197,24,0.12)',
+                  padding: '6px 14px',
+                  borderRadius: '100px',
+                  border: '1px solid rgba(245,197,24,0.25)',
                 }}>
-                  <div style={{ fontSize: '20px' }}>{ev.day}</div>
-                  <div style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '2px' }}>{ev.month}</div>
+                  {nextEvent.brand}
                 </div>
-                <div style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: ev.accent, marginBottom: '6px' }}>
-                  {ev.brand}
-                </div>
-                <div style={{ fontSize: '17px', fontWeight: 700, color: '#fff', lineHeight: 1.3 }}>
-                  {ev.title}
-                </div>
-              </div>
 
-              {/* Body (light) */}
-              <div style={{ padding: '16px' }}>
-                <div style={{ display: 'flex', gap: '14px', marginBottom: '14px', flexWrap: 'wrap' }}>
-                  <span style={{ fontSize: '12px', color: '#999999', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <LocationIcon /> {ev.location}
-                  </span>
-                  <span style={{ fontSize: '12px', color: '#999999', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <FormatIcon /> {ev.format}
-                  </span>
-                  <span style={{ fontSize: '12px', color: '#999999', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <SeatsIcon /> {ev.seats}
-                  </span>
+                <h3 style={{
+                  fontSize: 'clamp(26px, 3.5vw, 38px)',
+                  fontWeight: 800,
+                  color: '#FFFFFF',
+                  lineHeight: 1.15,
+                  marginBottom: '16px',
+                  letterSpacing: '-0.02em',
+                }}>
+                  {nextEvent.title}
+                </h3>
+
+                <p style={{
+                  fontSize: '16px',
+                  color: 'rgba(255,255,255,0.75)',
+                  lineHeight: 1.65,
+                  marginBottom: '28px',
+                  maxWidth: '560px',
+                }}>
+                  {nextEvent.excerpt}
+                </p>
+
+                {/* Meta info */}
+                <div style={{
+                  display: 'flex', gap: '20px', flexWrap: 'wrap',
+                  marginBottom: '28px',
+                }}>
+                  {[
+                    [<LocationIcon key="loc" />, nextEvent.location],
+                    [<FormatIcon key="fmt" />, nextEvent.format],
+                    [<SeatsIcon key="seats" />, nextEvent.seats],
+                  ].map(([icon, text], i) => (
+                    <span key={i} style={{
+                      fontSize: '13px', color: 'rgba(255,255,255,0.6)',
+                      display: 'flex', alignItems: 'center', gap: '6px',
+                    }}>
+                      {icon} {text}
+                    </span>
+                  ))}
                 </div>
-                <Link href={ev.href} style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '6px',
-                  fontSize: '13px', fontWeight: 700, color: 'var(--yellow)',
-                  textDecoration: 'none',
+
+                <span style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
+                  padding: '14px 32px',
+                  borderRadius: '100px',
+                  fontSize: '14px', fontWeight: 700,
+                  background: 'var(--yellow)',
+                  color: '#111111',
+                  transition: 'transform 0.2s',
                 }}>
                   Szczegóły i rejestracja <ArrowRight />
-                </Link>
+                </span>
               </div>
             </motion.div>
-          ))}
-        </RevealList>
+          </Link>
+        </Reveal>
       </div>
-
-      <style>{`
-        @media (max-width: 900px) {
-          .events-grid { grid-template-columns: 1fr !important; }
-        }
-        @media (min-width: 560px) and (max-width: 900px) {
-          .events-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-      `}</style>
     </section>
   );
 }
@@ -743,58 +772,6 @@ function KnowledgeSection() {
           .knowledge-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
-    </section>
-  );
-}
-
-/* ─── CTA (dark #0D0D0D) ──────────────────────────────────── */
-function CtaSection() {
-  return (
-    <section style={{ padding: '100px 0', background: '#0D0D0D' }}>
-      <div className="container">
-        <Reveal>
-          <div style={{
-            background: 'linear-gradient(135deg, #1A1A1A 0%, rgba(245,197,24,0.05) 100%)',
-            border: '1px solid rgba(245,197,24,0.15)',
-            borderRadius: '24px',
-            padding: '80px 64px',
-            display: 'flex',
-            gap: '64px',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-          }}>
-            <div style={{ flex: 1, minWidth: '280px' }}>
-              <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 40px)', fontWeight: 800, lineHeight: 1.15, marginBottom: '20px', letterSpacing: '-0.02em', color: '#FFFFFF' }}>
-                Wspólnie budujemy przyszłość biznesu, w której{' '}
-                <span style={{
-                  background: 'linear-gradient(135deg, #FFD84D 0%, #F5C518 60%, #D4A800 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}>AI staje się kluczem</span>
-              </h2>
-              <p style={{ fontSize: '16px', color: '#BBBBBB', lineHeight: 1.7, marginBottom: '32px' }}>
-                Dołącz do platformy, która nie tylko mówi o AI — ale ją wdraża. Wydarzenie po wydarzeniu, narzędzie po narzędziu, branża po branży.
-              </p>
-              <Link href="/#events" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                Zarejestruj się na kolejne wydarzenie <ArrowRight />
-              </Link>
-            </div>
-            <div style={{
-              width: '240px', height: '240px',
-              background: 'rgba(245,197,24,0.07)',
-              borderRadius: '50%',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              flexShrink: 0,
-              border: '1px solid rgba(245,197,24,0.15)',
-            }}>
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-              </svg>
-            </div>
-          </div>
-        </Reveal>
-      </div>
     </section>
   );
 }
