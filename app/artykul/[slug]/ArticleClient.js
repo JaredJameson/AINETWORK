@@ -376,7 +376,7 @@ export default function ArticleClient({ article, related }) {
           height: 100%;
           object-fit: cover;
           object-position: center;
-          opacity: 0.12;
+          opacity: 0.3;
           pointer-events: none;
           mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 85%);
           -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 85%);
